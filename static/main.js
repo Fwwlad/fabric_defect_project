@@ -46,8 +46,6 @@ processButton.addEventListener("click", async () => {
 
     document.getElementById("count").innerText = data.count;
 
-    document.getElementById("area").innerText = data.area + " %";
-
     document.getElementById("time").innerText = data.time + " сек";
 
 });

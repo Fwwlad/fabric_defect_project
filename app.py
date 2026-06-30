@@ -44,8 +44,7 @@ def process():
     result = process_image(upload_path)
 
     return jsonify({
-        "count": result["defect_count"],
-        "area": result["defect_area"],
+        "count": result["cup_count"],
         "time": result["processing_time"],
         "image": f"/static/results/{filename}"
     })
