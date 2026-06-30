@@ -1,3 +1,10 @@
 from ultralytics import YOLO
 
-model = YOLO("yolov8n.pt")
+
+class CoffeeCupDetector:
+
+    def __init__(self):
+        self.model = YOLO("yolov8n.pt")
+
+    def predict(self, image):
+        return self.model(image)
