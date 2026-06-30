@@ -10,7 +10,11 @@ from config import (
 
 from predict import process_image
 
+from database import init_database, save_request
+
 app = Flask(__name__)
+
+init_database()
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = MAX_CONTENT_LENGTH
@@ -42,6 +46,11 @@ def process():
     file.save(upload_path)
 
     result = process_image(upload_path)
+    save_request(
+        filename=filename,
+        cup_count=result["cup_count"],
+        processing_time=result["processing_time"]
+    )
 
     return jsonify({
         "count": result["cup_count"],
